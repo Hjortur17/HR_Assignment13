@@ -81,14 +81,23 @@ def play_one_move(col, row, valid_directions, coin):
           victory = is_victory(col, row)
      return victory, col, row, coin
 
-# The main program starts here
-victory = False
-row = 1
-col = 1
-coin = 0
+def play():
+          
+     # The main program starts here
+     while True:
+          victory = False
+          row = 1
+          col = 1
+          coin = 0
 
-while not victory:
-     valid_directions = find_directions(col, row)
-     print_directions(valid_directions)
-     victory, col, row, coin = play_one_move(col, row, valid_directions, coin)
-print("Victory! Total coins {}.".format(coin))
+          while not victory:
+               valid_directions = find_directions(col, row)
+               print_directions(valid_directions)
+               victory, col, row, coin = play_one_move(col, row, valid_directions, coin)
+          print("Victory! Total coins {}.".format(coin))
+
+          again = (input("Play again (y/n): ")).lower()
+          if again != "y":
+               break
+
+play()
