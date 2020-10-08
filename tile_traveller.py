@@ -40,11 +40,11 @@ def print_directions(directions_str):
 
 def pull_a_lever(col, row, coin):
      if (col == 1 and row == 2) or (col == 2 and row == 2) or (col == 2 and row == 3) or (col == 3 and row == 2):
-          user_input = input("Pull a lever(y/n): ")
+          user_input = input("Pull a lever (y/n): ")
 
           if user_input == 'y':
                coin += 1
-               print("You received 1 coin, your total is now " + str(coin))
+               print("You received 1 coin, your total is now {}.".format(coin))
      return coin
 
 def find_directions(col, row):
