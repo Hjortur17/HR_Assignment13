@@ -1,8 +1,13 @@
+import random
+
 # Constants
 NORTH = 'n'
 EAST = 'e'
 SOUTH = 's'
 WEST = 'w'
+
+allowed_directions = [NORTH, EAST, SOUTH, WEST]
+allowed_choices = ["y", "n"]
 
 def move(direction, col, row):
      ''' Returns updated col, row given the direction '''
@@ -40,7 +45,7 @@ def print_directions(directions_str):
 
 def pull_a_lever(col, row, coin):
      if (col == 1 and row == 2) or (col == 2 and row == 2) or (col == 2 and row == 3) or (col == 3 and row == 2):
-          user_input = input("Pull a lever (y/n): ")
+          user_input = print("Pull a lever (y/n): ", random.choice(allowed_choices))
 
           if user_input == 'y':
                coin += 1
@@ -70,8 +75,9 @@ def find_directions(col, row):
 def play_one_move(col, row, valid_directions, coin):
      ''' Plays one move of the game. Return if victory has been obtained and updated col,row '''
      victory = False
-     direction = input("Direction: ")
-     direction = direction.lower()
+     #direction = print("Direction: ", random.choice(allowed_directions))
+     #direction = direction.lower()
+     direction = random.choice(allowed_directions)
 
      if not direction in valid_directions:
           print("Not a valid direction!")
@@ -89,6 +95,8 @@ def play():
           row = 1
           col = 1
           coin = 0
+          seed_input = int(input("Input seed: "))
+          seed_input = random.seed(seed_input)
 
           while not victory:
                valid_directions = find_directions(col, row)
