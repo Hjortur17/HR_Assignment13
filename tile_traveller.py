@@ -45,7 +45,7 @@ def pull_a_lever(col, row, coin):
           if user_input == 'y':
                coin += 1
                print("You received 1 coin, your total is now " + str(coin))
-               return coin
+     return coin
 
 def find_directions(col, row):
      ''' Returns valid directions as a string given the supplied location '''
